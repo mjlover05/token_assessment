@@ -16,27 +16,23 @@ Once you are on the Remix website, create a new file by clicking on the "+" icon
 contract MyToken {
 
     // public variables here
-    string public tokenName = "META";
-    string public tokenAbbrv = "MTA";
+    string public tokenName = "MyCoin";
+    string public tokenAbbrvi = "Coin";
     uint public totalSupply = 0;
-
     // mapping variable here
-    mapping (address => uint) public balances;
-
+    mapping (address => uint) public balance;
     // mint function
     function mint( address _address, uint _value) public  {
         totalSupply += _value;
-        balances[_address] += _value;
+        balance[_address] += _value;
     }
-
     // burn function
     function burn(address _address, uint _value) public {
-        if(balances[_address] >= _value){
+        if(balance[_address] >= _value){
             totalSupply -= _value;
-            balances[_address] -= _value;
+            balance[_address] -= _value;
         }
     }
-
 }
 
 ```
